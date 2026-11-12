@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Operación Extracción</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+  {"imports":{
+    "three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <div id="hud"><b id="zone"></b><br>Objetivo: baja de la mansión y llega al refugio</div>
+  <div id="stat">Escudos: <b id="shields">0</b> <span id="shieldfx"></span> <span id="speedfx"></span></div>
+  <div id="ammo"></div><div id="cross"></div><div id="shield"></div><div id="toast"></div>
+  <div id="overlay"><div>
+    <h1 id="ov-title">OPERACIÓN EXTRACCIÓN</h1>
+    <p id="ov-text">Estás en el piso superior de una mansión infestada.<br>Baja y llega al refugio.<br><br>W A S D: moverte · Ratón: mirar · Clic izq: disparar · 1/2: armas · Clic der: usar escudo<br>T: saltar entre puntos del mapa (pruebas)</p>
+    <p><b>Clic para comenzar</b></p>
+  </div></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

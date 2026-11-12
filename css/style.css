@@ -1,0 +1,13 @@
+html,body{margin:0;height:100%;overflow:hidden;background:#000;font-family:Arial,sans-serif;color:#fff}
+canvas{display:block}
+#hud,#stat{position:fixed;left:12px;background:#0008;padding:8px 12px;border-radius:8px;z-index:2;line-height:1.5}
+#hud{top:12px}#stat{bottom:12px}
+#cross{position:fixed;top:50%;left:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:#fffa;box-shadow:0 0 4px #000;z-index:2;pointer-events:none;transition:transform .08s,background-color .08s,box-shadow .08s}
+#cross.hit{background:#ff2a2a;box-shadow:0 0 12px 3px #ff2222;transform:scale(2.2)}
+#shield{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .25s;box-shadow:inset 0 0 120px 40px #00e5ffaa;background:#00e5ff14}
+#shield.on{opacity:1}
+#toast{position:fixed;bottom:70px;width:100%;text-align:center;z-index:2;text-shadow:0 0 6px #000;opacity:0;transition:opacity .3s}
+#overlay{position:fixed;inset:0;display:grid;place-items:center;background:#000a;z-index:3;cursor:pointer;text-align:center}
+#overlay div{background:#111e;padding:24px 34px;border-radius:14px;max-width:520px}
+#overlay h1{margin:0 0 8px}
+#ammo{position:fixed;right:12px;bottom:12px;background:#0008;padding:8px 14px;border-radius:8px;z-index:2;font-size:22px;font-weight:bold}
