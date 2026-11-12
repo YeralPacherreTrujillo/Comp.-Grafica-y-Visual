@@ -33,7 +33,6 @@ También puede ejecutarse utilizando Live Server en Visual Studio Code.
 | Clic derecho | Usar inyección de escudo |
 | F | Encender/apagar linterna |
 | Esc | Pausar |
-| T | Teletransporte de pruebas |
 
 ## Mecánicas
 
