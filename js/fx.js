@@ -1,13 +1,6 @@
 import * as THREE from 'three';
 
-/**
- * Gestor de efectos visuales (FX):
- * - Fogonazos de boca de cañón (muzzle flashes) con luz dinámica.
- * - Proyectiles trazadores 3D visibles en vuelo (bullet tracers).
- * - Impactos de sangre 3D al impactar zombis.
- * - Impactos de chispas, humo y marcas de impacto al chocar con paredes/entorno.
- * - Sonidos sintetizados avanzados por Web Audio API.
- */
+//EFECTOS VISUALES
 export function createFX(scene) {
   const tracers = [];
   const particles = [];

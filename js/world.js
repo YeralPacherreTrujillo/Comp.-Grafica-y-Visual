@@ -16,10 +16,7 @@ export function createWorld(scene) {
       ...o
     });
 
-  // =====================================================
   // TEXTURAS
-  // =====================================================
-
   const cv = document.createElement('canvas');
   cv.width = cv.height = 64;
 
@@ -56,10 +53,7 @@ export function createWorld(scene) {
     path: mat(0x8a8478)
   };
 
-  // =====================================================
   // HELPERS DE CONSTRUCCIÓN
-  // =====================================================
-
   function plane(x0, x1, z0, z1, y, m, up = true, tile = 0) {
     const w = x1 - x0;
     const d = z1 - z0;
@@ -131,10 +125,7 @@ export function createWorld(scene) {
     return b;
   }
 
-  // =====================================================
-  // DETECCIÓN DE MUEBLES JUNTO A PAREDES
-  // =====================================================
-
+  // DETECCIÓN DE MUEBLES
   function nearWall(x, z, w, d, y, h) {
     const x0 = x - w / 2;
     const x1 = x + w / 2;
@@ -173,10 +164,7 @@ export function createWorld(scene) {
     });
   }
 
-  // =====================================================
   // CAMAS Y ARMARIOS 3D
-  // =====================================================
-
   const furn = (x, z, w, d, h, m, y = 0) => {
     const x0 = x - w / 2;
     const x1 = x + w / 2;
@@ -226,10 +214,7 @@ export function createWorld(scene) {
     return original;
   };
 
-  // =====================================================
   // PAREDES
-  // =====================================================
-
   function wall(ax, az, bx, bz, y0, h, gaps = [], m = M.wall) {
     const alongX = az === bz;
     const T = 0.15;
@@ -282,10 +267,7 @@ export function createWorld(scene) {
     }
   }
 
-  // =====================================================
-  // LÁMPARAS TENUES DE TERROR
-  // =====================================================
-
+  // LÁMPARAS
   function lamp(x, y, z, color = 0xffd9a0, i = 28, flicker = false) {
     // Solo el 12 % de la intensidad original.
     const intensity = i * 0.12;
@@ -316,10 +298,7 @@ export function createWorld(scene) {
     });
   }
 
-  // =====================================================
   // COLECCIONABLES
-  // =====================================================
-
   function pickup(type, x, y, z) {
     const h = new THREE.Group();
 
@@ -376,10 +355,7 @@ export function createWorld(scene) {
     });
   }
 
-  // =====================================================
-  // AMBIENTE NOCTURNO DE SUSPENSO
-  // =====================================================
-
+  // AMBIENTE NOCTURNO
   // Cielo casi negro
   scene.background = new THREE.Color(0x020307);
 
@@ -389,7 +365,7 @@ export function createWorld(scene) {
     0.055
   );
 
-  // Luz ambiental muy tenue
+  // Luz ambiental
   scene.add(
     new THREE.HemisphereLight(
       0x34405a,
@@ -407,10 +383,7 @@ export function createWorld(scene) {
   moon.position.set(-20, 40, -30);
   scene.add(moon);
 
-  // =====================================================
   // SUELOS, TECHOS Y ENTREPISO
-  // =====================================================
-
   plane(-24, 24, -12, 12, 0, M.floor, true, 3);
   plane(-90, 40, -45, 45, -0.03, M.grass);
   plane(-24, 24, -12, 12, 8, M.ceiling, false);
@@ -425,10 +398,7 @@ export function createWorld(scene) {
     plane(a, b, c, d, 4, M.ceiling, false);
   }
 
-  // =====================================================
   // PLANTA ALTA
-  // =====================================================
-
   const U = 4;
 
   wall(-24, -12, 24, -12, U, H);
@@ -481,10 +451,7 @@ export function createWorld(scene) {
   furn(10, 8, 3.4, 2, 0.9, M.green, U);
   furn(20, 6, 1, 4, 0.9, M.cloth, U);
 
-  // =====================================================
   // PLANTA BAJA
-  // =====================================================
-
   wall(-24, -12, 24, -12, 0, H);
   wall(-24, 12, 24, 12, 0, H);
   wall(24, -12, 24, 12, 0, H);
@@ -525,10 +492,7 @@ export function createWorld(scene) {
   furn(-22, 6, 1, 8, 2.2, M.wood);
   furn(-16, 11, 5, 1, 1.5, M.wood);
 
-  // =====================================================
   // JARDÍN Y REFUGIO
-  // =====================================================
-
   const fence = (a, b, c, d) =>
     wall(a, b, c, d, 0, 2.6, [], M.fence);
 
@@ -584,10 +548,7 @@ export function createWorld(scene) {
     });
   }
 
-  // =====================================================
   // REFUGIO
-  // =====================================================
-
   wall(
     -44, -12, -44, 0, 0, 3.5,
     [[-7.5, -4.5]],
@@ -653,10 +614,7 @@ export function createWorld(scene) {
   moonMesh.position.set(-60, 60, -100);
   scene.add(moonMesh);
 
-  // =====================================================
   // LUCES DEL MAPA
-  // =====================================================
-
   lamp(-16, 7.5, -8);
   lamp(-12, 7.5, 0, 0xffd9a0, 28, true);
   lamp(4, 7.5, 0);
@@ -672,10 +630,7 @@ export function createWorld(scene) {
   lamp(-26, 3.2, -6, 0xffe6b0, 24);
   lamp(-50, 3, -6, 0x66ff99, 22);
 
-  // =====================================================
   // COLECCIONABLES DEL MAPA
-  // =====================================================
-
   pickup('shield', 10, 4.9, -9);
   pickup('shield', -3, 0.9, 2);
   pickup('shield', -36, 0.9, 6);
@@ -695,10 +650,7 @@ export function createWorld(scene) {
     pickup('ammo', x, y, z);
   });
 
-  // =====================================================
   // API DEL MUNDO
-  // =====================================================
-
   const api = {
     onPickup: () => {},
 

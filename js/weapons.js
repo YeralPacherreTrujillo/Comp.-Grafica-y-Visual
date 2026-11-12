@@ -2,15 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CFG } from './config.js';
 
-/**
- * Módulo de Armas:
- * - Pistola y Escopeta en primera persona con modelos GLTF/GLB.
- * - Salida de bala visible: Fogonazo en boca de cañón (muzzle flash) y luz dinámica.
- * - Trazadores de bala 3D visibles en tiempo real surcando el espacio.
- * - Dispersión de perdigones (spread) para la escopeta.
- * - Impactos visuales con sangre 3D en zombis y chispas/humo/marcas en paredes.
- * - Retroceso visual del arma y retroceso en la cámara del jugador.
- */
+//MODULO DE ARMAS
 export async function createWeapons(scene, camera, world, zombies, fx, player, isPlaying, toast, onHit) {
   const loader = new GLTFLoader();
   const rc = new THREE.Raycaster();

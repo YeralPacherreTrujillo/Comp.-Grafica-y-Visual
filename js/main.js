@@ -25,7 +25,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(innerWidth, innerHeight);
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 
-// Tonos cinematográficos para una atmósfera de terror
+// Tonos
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 0.75;
@@ -36,7 +36,7 @@ document.body.appendChild(renderer.domElement);
 const world = createWorld(scene);
 const fx = createFX(scene);
 
-// Las armas son hijas de la cámara
+// Las armas 
 scene.add(camera);
 
 const player = createPlayer(
