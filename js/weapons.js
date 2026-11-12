@@ -12,11 +12,16 @@ export async function createWeapons(scene, camera, world, zombies, fx, player, i
   let cur = 0;
   let ammo = CFG.WEAPONS.map(w => w.ammo);
 
-  // Cargar y calibrar los modelos 3D de las armas
-  for (const w of CFG.WEAPONS) {
+  // Cargar los modelos 3D de las armas
+  const weaponModels = [
+    'models/arma1.glb',
+    'models/arma2.glb'
+  ];
+
+  for (const [i, w] of CFG.WEAPONS.entries()) {
     let model;
     try {
-      model = (await loader.loadAsync(w.file)).scene;
+    model = (await loader.loadAsync(weaponModels[i])).scene;
     } catch {
       console.warn('No se cargó', w.file, '→ arma de reemplazo');
       model = new THREE.Mesh(

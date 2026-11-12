@@ -8,6 +8,8 @@ export async function createZombies(scene, world, player) {
   const Z = CFG.ZOMBIE;
   let riggedTemplate = null;
 
+  const zombieModelPath = 'models/zombie.glb';
+
   try {
     const gltf = await new GLTFLoader().loadAsync(Z.file);
     riggedTemplate = buildRiggedZombieMesh(gltf, Z.height);
